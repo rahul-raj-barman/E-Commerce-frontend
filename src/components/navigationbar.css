@@ -1,0 +1,178 @@
+.cont {
+    background: radial-gradient(circle at 10% 20%, rgb(208, 89, 109) 0%, rgb(231, 156, 118) 90%);
+    padding-bottom: 10px;
+    font-family: sans-serif;
+}
+
+.nav-box {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fafafa; 
+    height: 10vh;
+    align-items: center;
+}
+
+.search-box{
+    position: relative;
+    background-color: yellowgreen;
+}
+
+.search-box i {
+    position: absolute;
+    top: 5px;
+    color: green;
+    left: 5px;
+
+}
+
+.nav-list {
+    margin-bottom: 5px;
+    display:flex;
+    justify-content: center;
+
+}
+
+.nav-list>li {
+    padding-top: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: inline;
+   
+}
+
+/* .list-secontion-cont {
+    z-index: 600;
+} */
+
+.nav-list li a {
+    font-size: .9rem;
+    font-weight: 550;
+    color: #fafafa;
+    text-decoration: none;
+    
+}
+
+.list-cont {
+    position: relative;
+    margin-bottom: -10px;
+    border-radius: 10px;
+    height: 25px;
+    background: #007ab7; 
+    padding-bottom: 30px;
+    opacity: 1;
+}
+
+.list-cont ul li a:hover {
+    text-decoration: solid underline rgb(216, 216, 216) 4px;
+}
+
+.drop {
+    position: absolute;
+    background-color: #007ab7;
+
+}
+
+
+.drop-men {
+    height: 300px;
+    display: flex;
+    background-color: rgba(213, 76, 76, 0.175);
+    border: 1px solid black;
+    z-index: 20;
+    right: 200px;
+    top: 30px;
+    
+}
+
+
+.drop-women {
+    height: 300px;
+    display: flex;
+    background-color: rgba(213, 76, 76, 0.175);
+    border: 1px solid black;
+    z-index: 20;
+    right: 0px;
+    top: 30px;
+    
+}
+
+.drop-kid {
+    height: 300px;
+    display: flex;
+    background-color: rgba(213, 76, 76, 0.175);
+    border: 1px solid black;
+    left:210px;
+    top: 30px;
+    z-index: 10;
+    
+}
+
+.drop-items {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: .9rem;
+    margin-top: 17vh;
+    background-color: yellow;
+}
+
+.drop-items ul {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+}
+
+.man-list-item {
+    padding-bottom: -0px;
+}
+
+.search-box {
+    background-color: white;
+}
+
+.custom-text {
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.nav-box div {
+    cursor: pointer;
+}
+
+.search-box input{
+    border: transparent;
+    width: 30vw;
+    height: 32px;
+    border-radius: 5px 0px 0px 5px
+}
+
+.nav-list li a {
+    color: rgb(255, 255, 255);
+}
+.search-box i {
+    background: #007ab7;
+    color: #fafafa;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding-top:11px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: .7em;
+}
+
+.my-account {
+    font-size: 1.4rem;
+    color: #007ab7;
+    background-color: rgb(238, 238, 238);
+    width: 40px;
+    text-align: center;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.cart-nav {
+    font-size: 1.2rem;
+}
