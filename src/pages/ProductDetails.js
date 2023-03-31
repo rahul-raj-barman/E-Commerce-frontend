@@ -70,7 +70,63 @@ const ProductDetails = () => {
                     <button>Add to Cart</button>
                 </div>
             </div>
-           </div> 
+           </div>
+           
+           <div className="row">
+            <div className="col-10">
+                <div className="review-cont">
+                    <div className="heading">Reviews</div>
+
+                    <div className="added-review">
+                        <span className='customer-name'>Rahul</span>
+                        <span className='rating-given text-warning'>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        </span>
+                        <span className="review-date">
+                            2022-10-9
+                        </span>
+                        <span className='review-comment'>Great T-shirt</span>
+                        
+                    
+                    </div>
+
+                    <div className="add-review">
+                    
+                        <div className="heading">
+                            Write a customer review
+                        </div>
+
+                        <div className="review-form">
+                            
+                                <label htmlFor="rating">Rating</label>
+                                <select name="ratings" id="rating">
+                                    <option value="1 - Bad">1 - Bad</option>
+                                    <option value="2 - Not good">2 - Not good</option>
+                                    <option value="3 - Medium">3 - Medium</option>
+                                    <option value="4 - Good">4 - Good</option>
+                                    <option value="5 - Very">5 - Very</option>
+                                
+                                </select>
+                                <br />
+                                <textarea name="comment" id="addComment" cols="30" rows="4" placeholder='add a comment'></textarea>
+                                <br />
+                                <button>
+                                    Submit
+                                </button>
+                        
+                        </div>
+                    </div>
+                
+                
+                </div>
+            
+            </div>
+           </div>
+
         </div>
         </>
     );

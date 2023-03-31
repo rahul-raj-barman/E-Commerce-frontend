@@ -1,0 +1,39 @@
+.price-summary {
+    background-color: rgb(201, 190, 211);
+
+}
+.cart-cont {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2vh;
+    justify-content: space-between;
+}
+
+.checkout {
+    background-color: steelblue;
+    font-size: .9rem;
+
+}
+
+.page-title {
+    margin-top: 5vh;
+    font-size: 1.6rem;
+    color: rgb(88, 87, 87);
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.price-summary {
+    padding: 14px;
+    height: 25vh;
+    border: 1px solid black;
+    margin-right: 5vw;
+    border-radius: 5px;
+    font-weight: 550;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(8, 49, 31);
+    background-color: #deeaee;
+    padding-top: 5vh;
+}

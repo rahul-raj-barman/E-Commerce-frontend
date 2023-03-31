@@ -1,0 +1,23 @@
+input {
+    width: 20px;
+    background: none;
+    font-size: 1.3rem;
+    background-color: none;
+    border: none;
+    
+}
+
+form {
+    background-color: none;
+    box-shadow: none;
+    width: 60vw;
+
+}
+
+.payment-title {
+    font-size: 1.8rem;
+    font-weight: 550;
+    color: rgba(0, 0, 0, 0.601);
+    margin-left: 20vw;
+    margin-top: 6vh;
+}
