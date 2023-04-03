@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../components/Footer';
 import './homepage.css'
 
 const Homepage = () => {
@@ -27,31 +28,7 @@ const Homepage = () => {
        </a>
      </div>
 
-
-     <section class="featured-products">
-  <h2>Featured Products</h2>
-  <div class="products-container">
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1607522370275-f14206abe5d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1121&q=80" alt="Product 1"/>
-      <h3>Product 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <button>Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1607522370275-f14206abe5d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1121&q=80" alt="Product 2"/>
-      <h3>Product 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <button>Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1607522370275-f14206abe5d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1121&q=80" alt="Product 3"/>
-      <h3>Product 3</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <button>Add to Cart</button>
-    </div>
-  </div>
-</section>
-
+      <Footer/>
 
        </>
 

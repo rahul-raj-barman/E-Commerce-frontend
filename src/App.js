@@ -9,12 +9,15 @@ import Cart from './pages/Cart';
 import Shipping from './pages/Shipping';
 import PaymentPage from './pages/Payment';
 import PreviewOrder from './pages/PreviewOrder';
+import FeaturedProductContainer from './components/FeaturedProductContainer';
 
 
 function App() {
   return (
     <>
-      <PreviewOrder/>
+      // <Navigationbar/>
+      <FeaturedProductContainer/>
+      
     </>
   );
 }

@@ -17,10 +17,18 @@
     background-color: yellowgreen;
 }
 
+.search-box input {
+    margin-bottom: 0px;
+    outline: none;
+    padding-left: 100px;
+    padding-top: 0px;
+    font-size: .9rem;
+    color: rgb(70, 69, 69);
+}
+
 .search-box i {
     position: absolute;
     top: 5px;
-    color: green;
     left: 5px;
 
 }
@@ -155,7 +163,8 @@
     color: #fafafa;
     position: absolute;
     left: 0px;
-    top: 0px;
+    top: 0.2px;
+    height : 5.4vh;
     padding-top:11px;
     padding-bottom: 10px;
     padding-left: 10px;

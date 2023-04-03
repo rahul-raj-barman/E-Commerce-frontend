@@ -1,5 +1,7 @@
 import React, {useState, useRef} from "react";
-import 'react-bootstrap'
+
+import { Outlet, Link } from "react-router-dom";
+
 import './navigationbar.css'
 import logo from '../nav-images/logo.png';
 
@@ -34,6 +36,7 @@ let Navigationbar = () => {
   }
 
   return (
+    <>
     <div className="container-fluid cont">
       <div className="row d-flex justify-content-center">
         <div className="col-11 d-flex flex-row d-flex justify-content-between nav-box">
@@ -55,11 +58,16 @@ let Navigationbar = () => {
         </div>
         <div className="d-flex flex-row">
           <div className="cart-nav me-4 mt-1">
+          <Link to={`cart`}>
           <i class="fa-sharp fa-solid   fa-cart-shopping"></i>
+          </Link>
+          
 
           </div>
           <div className="my-account">
+          <Link to={`myprofile`}>
           <i class="fa-solid fa-user"></i>
+          </Link>
           </div>
         </div>
 
@@ -223,6 +231,8 @@ let Navigationbar = () => {
       </div>
     </div>
     </div>
+    <Outlet/>
+    </>
   );
 }
 
