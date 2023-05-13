@@ -11,6 +11,9 @@
   
   .login-container {
     display: flex;
+    background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -29,9 +32,10 @@
   
   h1 {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 450;
+    font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #c57b57;
+    color: #5a5451;
     letter-spacing: 1px;
   }
   
@@ -43,21 +47,21 @@
   label {
     display: block;
     margin-bottom: 5px;
-    color: #c57b57;
-    font-weight: bold;
+    color: #5a5451;
+    font-weight: 360;
   }
   
   input[type="email"],
   input[type="password"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #c57b57;
-    border-radius: 5px;
+    border: none;
     font-size: 16px;
+    border: 2px solid rgb(211, 209, 209);
   }
   
   .btn {
-    background-color: #c57b57;
+    background-color: #5a5451;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -81,10 +85,17 @@
     justify-content: space-between;
     width: 250px;
     font-size: 14px;
-    color: #c57b57;
+    color: #5a5451;
   }
   
   .links a{
     text-decoration: none;
-    color: #c57b57;
+    color: #5a5451;
+  }
+
+  .spinner {
+    position: absolute;
+    left:34%;
+    top: -7%;
+    color: rgb(33, 212, 128);
   }

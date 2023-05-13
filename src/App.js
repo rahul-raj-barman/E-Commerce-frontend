@@ -10,15 +10,18 @@ import Shipping from './pages/Shipping';
 import PaymentPage from './pages/Payment';
 import PreviewOrder from './pages/PreviewOrder';
 import FeaturedProductContainer from './components/FeaturedProductContainer';
+import Review from './components/Review';
+import CartState from './context/CartState';
+import priceState from './context/priceState';
 
 
 function App() {
   return (
-    <>
-      // <Navigationbar/>
-      <FeaturedProductContainer/>
-      
-    </>
+    <CartState>
+    <div style={{position: 'relative', left: '-10px'}}>
+      <Navigationbar/>   
+    </div>
+    </CartState>
   );
 }
 

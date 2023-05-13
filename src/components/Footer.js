@@ -6,9 +6,9 @@ const Footer = () => {
         <>
         <footer>
         <div class="footer-container">
-          <div class="footer-section">
+          <div class="footer-section" style={{padding: '20px'}}>
             <h4>About Us</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat amet recusandae sit voluptatem libero et deserunt! Magni ea blanditiis eos deleniti expedita voluptates officia quia in ab porro perspiciatis debitis at, atque odio rerum nulla quae doloribus eligendi natus aspernatur.</p>
+            <p>Welcome to [Ecommerce Website Name], your ultimate destination for all your online shopping needs! We are a leading ecommerce platform committed to providing you with a seamless and enjoyable shopping experience.</p>
           </div>
           <div class="footer-section">
             <h4>Customer Service</h4>
@@ -21,9 +21,9 @@ const Footer = () => {
           <div class="footer-section">
             <h4>Follow Us</h4>
             <ul class="social-icons">
-              <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=100074213496198"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="https://twitter.com/rahulbarma95752"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="https://twitter.com/rahulbarma95752"><i class="fab fa-instagram"></i></a></li>
             </ul>
           </div>
         </div>

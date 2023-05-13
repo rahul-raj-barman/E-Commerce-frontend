@@ -10,13 +10,18 @@ input {
 form {
     background-color: none;
     box-shadow: none;
-    width: 60vw;
+    width: 40vw;
 
 }
 
+form button {
+    background-color: rgb(158, 22, 22);
+}
+
 .payment-title {
-    font-size: 1.8rem;
-    font-weight: 550;
+    font-size: 1.5rem;
+
+    font-weight: 400;
     color: rgba(0, 0, 0, 0.601);
     margin-left: 20vw;
     margin-top: 6vh;

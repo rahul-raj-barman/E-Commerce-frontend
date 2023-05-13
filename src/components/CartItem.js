@@ -1,17 +1,69 @@
 import React, {useState} from 'react'
+import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { BASE_URL } from '../config'
+import { actionCreators } from '../states'
 import './cartItem.css'
 
-function CartItem() {
+function CartItem(props) {
 
     let [count, setCount] = useState(1)
 
-    let decreaseCount = () => {
+    const dispatch = useDispatch();
+    const update = useSelector(state => state.update)
+
+    const user_id = localStorage.getItem("user_id")
+    let decreaseCount = (pid) => {
         if(count > 0) setCount(count-1)
-        else return;
+        const _id = pid;
+        const userId = user_id
+        const obj = {
+            _id, userId
+        }
+        axios.post(`${BASE_URL}/decreasecount`, obj)
+        .then((result) => {
+            console.log('done')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
+        
     }
 
-    let increaseCount = () => {
+    let increaseCount = (pid) => {
         setCount(count+1);
+        const _id = pid;
+        const userId = user_id
+        const obj = {
+            _id, userId
+        }
+        axios.post(`${BASE_URL}/increasecount`, obj)
+        .then((result) => {
+            console.log('done')
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
+    }
+    
+
+    let delProduct = (id) => {
+        console.log("going to dispatch")
+        console.log(update)
+        const body = {
+            id: localStorage.getItem('user_id')
+        }
+        axios.delete(`${BASE_URL}/delproduct/${id}`, { data: body })
+        .then((data) => {
+            console.log(data)
+            dispatch(actionCreators.updateData('update'))
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+       
     }
 
   return (
@@ -21,22 +73,26 @@ function CartItem() {
             <div className="product">
                 <div className="product-img">
                 
-                <img src="https://images.unsplash.com/photo-1680028136470-5a957bc07a5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="not found" />
+                <img src={`http://localhost:5000/images/${props.image}`} alt="not found" />
                 
                 </div>
 
-                <div className="product-name">Nike Slim Shirt</div>
-            
-            </div>
-            <div className="product-count">
-            <i class="fa-solid fa-circle-minus minus" onClick={() => decreaseCount()}></i>
-            <span className='counter'> {count} </span>
+                <div className="product-name">{props.name}</div>
+                </div>
 
-            <i class="fa-solid fa-circle-plus plus" onClick={() => increaseCount()}></i>
+                {
+            //         </div>
+            // <div className="product-count">
+            // <i class="fa-solid fa-circle-minus minus" onClick={() => decreaseCount(props.pid)}></i>
+            // <span className='counter'> {props.count} </span>
+
+            // <i class="fa-solid fa-circle-plus plus" onClick={() => increaseCount(props.pid)}></i>
             
-            </div>
-        <div className="price">$100</div>
-        <div className="del-product"><i class="fa-solid fa-trash"></i></div>
+            // </div>
+                }
+            
+        <div className="price">${props.price}</div>
+        <div className="del-product" onClick={() => delProduct(props.pid)}><i class="fa-solid fa-trash"></i></div>
         </div>
 
   )

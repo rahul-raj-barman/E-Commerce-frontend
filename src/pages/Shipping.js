@@ -1,19 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './shipping.css';
+import { useNavigate } from "react-router";
+import axios from 'axios'
+import { BASE_URL } from '../config'
 
 
 function ShippingAddressForm() {
   const [name, setName] = useState("");
-  const [addressLine1, setAddressLine1] = useState("");
-  const [addressLine2, setAddressLine2] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
 
+  const navigate = useNavigate();
+  const userid = localStorage.getItem('user_id')
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle submission of form data here
+    const obj = {
+      name, address, phone, city, state, zip
+    }
+
+    axios.post(`${BASE_URL}/editadress/${userid}`, obj)
+    .then((data) => {
+        navigate('/previeworder')
+        console.log(data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   };
+  
 
   return (
     <form onSubmit={handleSubmit}>
@@ -28,20 +45,20 @@ function ShippingAddressForm() {
         />
       </label>
       <label>
-        Address Line 1:
+        Address :
         <input
           type="text"
-          value={addressLine1}
-          onChange={(e) => setAddressLine1(e.target.value)}
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
           required
         />
       </label>
       <label>
-        Address Line 2:
+        Phone Number : 
         <input
           type="text"
-          value={addressLine2}
-          onChange={(e) => setAddressLine2(e.target.value)}
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
         />
       </label>
       <label>

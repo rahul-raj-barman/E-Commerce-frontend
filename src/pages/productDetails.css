@@ -1,22 +1,13 @@
 
 .main-cont {
-    background: rgb(233, 232, 232);
-}
-
-#product-img {
-    height: 80vh;
-    width: 45vw;
-}
-
-.img-cont {
-    padding: 20px;
-    height: 100vh;
+    background: #F0F0F0;
 }
 
 .about-product {
     height:fit-content;
     display: flex;
     padding: 10px;
+    background-color: #E86A33;
     flex-direction: column;
 
 }
@@ -34,15 +25,26 @@
     flex-direction: column;
 }
 
+.addtocart {
+    background-color: #E86A33 !important;
+}
+
 .about-product div, .about-seller div {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .title, .name {
-
+    letter-spacing: 1px;
     font-size: 1.3rem;
     font-weight: 550;
+    color: whitesmoke;
 }
+
+.price span, .text-star{
+    color: whitesmoke;
+}
+
+
 
 .add-to-cart button {
     background-color: rgb(54, 142, 4);
@@ -53,7 +55,13 @@
     text-align: left;
     display: flex;
     padding: 20px;
+
     flex-direction: column;
+}
+
+.add-review {
+    padding-left: 20px;
+    padding-bottom: 4vh;
 }
 
 .added-review {
@@ -81,12 +89,17 @@
     opacity: .8;
 }
 
+.review-form {
+    margin-left: 10px;
+}
+
 .review-form select{
     width:60vw;
     height: 5vh;
     padding: 5px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(62, 61, 61);
+    background-color: rgb(228, 228, 228) !important;
+    color: #16173e !important;
     margin-bottom: 10px;
     border-radius: 5px;
 }
@@ -133,3 +146,32 @@
     }
   }
 
+#addComment {
+    font-weight: 350;
+    font-size: 8.rem;
+    padding: 10px;
+    background-color: rgb(228, 228, 228) !important;
+    color: #16173e !important;
+}
+
+.img-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#product-img {
+    height:30vw;
+    width: 30vw;
+    border: 1px solid black;
+
+}
+
+.description {
+    background-color: #F1F6F9 !important;
+    padding: 5px;
+    font-weight: 380;
+    letter-spacing: 1px;
+    font-family: "Source Sans Pro", "Arial", sans-serif;;
+    color: #16173e !important;
+}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-
+import paypal from './icons/paypal.ico';
+import stripe from './icons/stripe.ico';
+import { Link } from 'react-router-dom';
 import './payment.css'
 
 function PaymentPage() {
@@ -23,18 +25,16 @@ function PaymentPage() {
       <h2 className='payment-title'>Select Payment Option:</h2>
       <form onSubmit={handlePayment}>
         <div>
-          <label>
+          <img className='me-2' src={paypal} alt="" height="60px"/>
             <input type="radio" value="paypal" checked={selectedOption === 'paypal'} onChange={handleOptionSelect} />
-            PayPal
-          </label>
         </div>
         <div>
-          <label>
-            <input type="radio" value="stripe" checked={selectedOption === 'stripe'} onChange={handleOptionSelect} />
-            Stripe
-          </label>
+        <img className="me-2" src={stripe} alt="" height="60px"/>
+            <input type="radio" 
+            value="stripe" checked={selectedOption === 'stripe'} onChange={handleOptionSelect} />
         </div>
-        <button type="submit">Pay Now</button>
+        <Link to='/paypal'><button type="submit">Pay Now</button></Link>
+        
       </form>
     </>
   );

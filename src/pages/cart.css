@@ -17,6 +17,8 @@
 
 }
 
+
+
 .page-title {
     margin-top: 5vh;
     font-size: 1.6rem;
@@ -30,10 +32,12 @@
     height: 25vh;
     border: 1px solid black;
     margin-right: 5vw;
+    font-size: 1.2rem;
     border-radius: 5px;
-    font-weight: 550;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(8, 49, 31);
-    background-color: #deeaee;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family:sans-serif;
+    background-color: rgb(254, 254, 254);
+    color: rgba(7, 55, 81, 0.871);
     padding-top: 5vh;
 }

@@ -1,0 +1,33 @@
+.product-form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    background: radial-gradient(circle at 10% 20%, rgb(166, 226, 229) 0%, rgb(198, 232, 221) 100.2%);
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.product-form input, textarea, select {
+    margin-top: 2vh;
+    width: 50vw !important;
+    border: none !important;
+    border-radius: 5px;
+    background-color: rgb(72, 71, 71) !important;
+    color: white !important;
+}
+
+.add-main-cont {
+    margin-left: 4vw;
+    position: fixed;
+    top: 14vh;
+    right: 10vw;
+}
+
+.add-title span {
+    font-size: 1.4rem;
+}
+
+.submit-product {
+    margin-top: 3vh;
+    background-color: rgb(0, 131, 131) !important;
+}

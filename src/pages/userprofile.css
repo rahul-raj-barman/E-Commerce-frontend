@@ -1,0 +1,39 @@
+
+.profile-cont {
+    display: flex;
+    padding-top: 5vh;
+    flex-direction: column;
+    align-items: center;   
+    background-color: rgb(213, 213, 213); 
+}
+
+.profile-heading span {
+    font-size: 1.6rem;
+
+}
+
+.user-data {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-data input, textarea {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-radius: .2rem;
+    background-color: rgb(57, 57, 57) !important;
+    color: rgb(224, 224, 224) !important;
+    padding: .4rem;
+}
+
+.user-data label {
+    font-size: 1.1rem;
+    font-weight: 440;
+}
+
+.user-data textarea {
+    width: fit-content;
+    background-color: rgb(57, 57, 57) !important;
+    color: rgb(224, 224, 224) !important;
+}

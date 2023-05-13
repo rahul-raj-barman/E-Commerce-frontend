@@ -1,0 +1,29 @@
+
+table {
+    width: 90vw;
+    border-bottom: 1px solid rgb(187, 184, 184);
+}
+
+th, td {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+th {
+    color: rgb(80, 80, 80);
+    font-weight: 570;
+    border-bottom: 2px solid black;
+}
+
+.order-cont {
+    display: flex;
+    justify-content: center;
+    padding-top: 3vh;
+}
+
+.history-title {
+    margin-bottom: -2vh;
+    margin-left: 4vh;
+    margin-top: 5vh;
+}

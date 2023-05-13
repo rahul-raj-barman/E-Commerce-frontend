@@ -1,44 +1,188 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
+import { actionCreators } from '../states';
+import { BASE_URL } from '../config';
 import './productDetails.css'
+import Review from '../components/Review';
+import cartContext from '../context/CartContext';
+import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2'
+
 
 const ProductDetails = () => {
+    const [currentDeatails, setCurrentDetails] = useState({})
+    const [ratings, setRatings] = useState();
+    const [comment, setComment] = useState("");
+    const [reviews, setReviews] = useState()
+    const [aggregateRating, setAggregateRating] = useState(0);
+
+    const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+    const update = useSelector(state => state.update)
+
+    var id = localStorage.getItem("id")
+    var userId = localStorage.getItem("user_id")
+    const a = useContext(cartContext)
+    useEffect(() => {
+        axios.get(`${BASE_URL}/getproductbyid/${id}`)
+        .then((result) => {
+            // console.log(result.data.product)
+                setCurrentDetails(result.data.product)
+                setReviews(result.data.product.reviews)
+                // console.log(product)
+            })
+        .catch((err) => {
+            console.log(err)
+        })
+    },[update])
+
+    useEffect(() => {
+        console.log(reviews)
+    },[reviews])
+
+
+    const addReview = (e) => {
+
+        if(!localStorage.getItem('userToken')) {
+            Swal.fire({
+            title: 'You are not logged In!!!',
+            text: "Go to login?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                navigate('/login')
+        }
+    })
+        }
+        console.log(ratings)
+        const pid = (currentDeatails._id)
+        const obj = {
+            user: userId, 
+            rating: ratings,
+            text : comment
+        }
+        axios.post(`${BASE_URL}/addreview/${pid}`, obj)
+        .then((result) => {
+            console.log(result)
+            dispatch(actionCreators.updateData('update'))
+            setComment("")
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                
+              })
+              
+              Toast.fire({
+                icon: 'success',
+                title: 'Review Added'
+              })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
+
+    }
+
+    const addToCart = () => {
+        if(!localStorage.getItem('userToken')) {
+            Swal.fire({
+            title: 'You are not logged In!!!',
+            text: "Go to login?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                navigate('/login')
+        }
+        })
+        return;
+    }
+        a.increaseCount();
+        const quantity = 0;
+        const _id = id;
+        const cartObj = {
+            _id, quantity ,  userId
+        }
+        console.log(_id);
+        console.log(quantity)
+        console.log(userId)
+        axios.post(`${BASE_URL}/addtocart`,{_id, quantity, userId, image: currentDeatails.image})
+        .then((result) => {
+            console.log(result)
+
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
+    useEffect(() => {
+        let totalRating = 0;
+        let numberOfRatings = 0;
+        reviews && reviews.map((e) => {
+            if(e.rating) {
+                totalRating += e.rating;
+                numberOfRatings++;
+            }
+        })
+        setAggregateRating(totalRating/numberOfRatings)
+    }, [reviews])
+
+    useEffect(() => {
+
+    }, [aggregateRating])
+
     return (
         <>
         <div className='container-fluid'>
            <div className="row p-4 d-flex justify-content-between main-cont">
-            <div className="col-6 img-cont">
-                <img src="https://images.unsplash.com/flagged/photo-1571367034861-e6729ad9c2d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80" id='product-img' alt="not found" />
+            <div className="col-4 img-cont">
+                <img src={`http://localhost:5000/images/${currentDeatails.image}`} id='product-img' alt="not found" />
             
             </div>
-            <div className="col-2 ms-2 me-2 mt-4 about-product">
+            <div className="col-3 ms-2 me-2 mt-4 about-product">
                 
-            <div className="title">Formal Shirt White</div>
+            <div className="title">{currentDeatails.name}</div>
 
             <hr />
 
             <div className="rating d-flex justify-content-center">
-            <span className='me-2'>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
+            <span  className='me-2 stars'>
+            <i class="fa fa-star" aria-hidden="true" style={{color : aggregateRating >= 1 ? "gold" : 'whitesmoke'}}></i>
+            <i class="fa fa-star" aria-hidden="true" style={{color : aggregateRating >= 2 ? "gold" : 'whitesmoke'}}></i>
+            <i class="fa fa-star" aria-hidden="true" style={{color : aggregateRating >= 3 ? "gold" : 'whitesmoke'}}></i>
+            <i class="fa fa-star" aria-hidden="true" style={{color : aggregateRating >= 4 ? "gold" : 'whitesmoke'}}></i>
+            <i class="fa fa-star" aria-hidden="true" style={{color : aggregateRating >= 5 ? "gold" : 'whitesmoke'}}></i>
             </span>
-             <span className='text'>4 reviews</span>
+             <span className='text text-star'>{reviews ? reviews.length : 0} reviews</span>
             </div>
             <hr />
             <div className="price text d-flex justify-content-around">
-                <span>Price : </span> <span>13$</span>
+                <span>Price : </span> <span>${currentDeatails.price}</span>
             </div>
             
             <hr />
 
             <div className="description text d-flex justify-content-around">
+                
+                <span>
                 <span className="desc">
-                    Description:  
+                Description : &nbsp;   
                 </span>
-                <span className='about text'>
-                     High quality shirts
+                      {currentDeatails.description}
                 </span>
             </div>
 
@@ -47,6 +191,9 @@ const ProductDetails = () => {
                 <div className="name text">Seller</div>
                 <div className="seller-name text-success"><a href="#">Puma</a></div>
                 <div className="seller-rating text-warning">
+                {
+                    
+                }
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -57,7 +204,7 @@ const ProductDetails = () => {
                 <hr />
                 <div className="product-price text">
                     <span>Price:</span>
-                    <span>$120</span>
+                    <span>${currentDeatails.price}</span>
                 
                 </div>
                 <hr />
@@ -67,33 +214,21 @@ const ProductDetails = () => {
                 </div>
                 <hr />
                 <div className="add-to-cart ">
-                    <button>Add to Cart</button>
+                    <button className='addtocart' onClick={() => addToCart()}>Add to Cart</button>
                 </div>
             </div>
            </div>
+
+           {
+            reviews? reviews.map((product) => {
+                return(
+                    <Review comment = {product.text} rating = {product.rating}/>
+
+                )
+         
+            }):null
+           }
            
-           <div className="row">
-            <div className="col-10">
-                <div className="review-cont">
-                    <div className="heading">Reviews</div>
-
-                    <div className="added-review">
-                        <span className='customer-name'>Rahul</span>
-                        <span className='rating-given text-warning'>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        </span>
-                        <span className="review-date">
-                            2022-10-9
-                        </span>
-                        <span className='review-comment'>Great T-shirt</span>
-                        
-                    
-                    </div>
-
                     <div className="add-review">
                     
                         <div className="heading">
@@ -103,18 +238,18 @@ const ProductDetails = () => {
                         <div className="review-form">
                             
                                 <label htmlFor="rating">Rating</label>
-                                <select name="ratings" id="rating">
+                                <select name="ratings" id="rating" value={ratings} onChange={(e) => setRatings(e.target.value)}>
                                     <option value="1 - Bad">1 - Bad</option>
                                     <option value="2 - Not good">2 - Not good</option>
                                     <option value="3 - Medium">3 - Medium</option>
                                     <option value="4 - Good">4 - Good</option>
-                                    <option value="5 - Very">5 - Very</option>
+                                    <option value="5 - Very">5 - Very Good</option>
                                 
                                 </select>
                                 <br />
-                                <textarea name="comment" id="addComment" cols="30" rows="4" placeholder='add a comment'></textarea>
+                                <textarea name="comment" id="addComment" cols="30" rows="4" placeholder='add a comment' value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                                 <br />
-                                <button>
+                                <button onClick={(e) => addReview(e)}>
                                     Submit
                                 </button>
                         
@@ -123,11 +258,7 @@ const ProductDetails = () => {
                 
                 
                 </div>
-            
-            </div>
-           </div>
 
-        </div>
         </>
     );
 }
