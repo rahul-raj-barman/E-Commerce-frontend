@@ -42,7 +42,6 @@ function Login() {
       }
     })
 
-    // TODO: Handle login submission
   }
 
   return (

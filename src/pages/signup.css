@@ -1,6 +1,6 @@
 .signup-page {
     display: flex;
-    background-image: url('https://images.unsplash.com/photo-1485125639709-a60c3a500bf1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    background-image: url(../images/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     flex-direction: column;
@@ -14,12 +14,12 @@
     width: fit-content !important;
     padding: 20px;
     position: relative;
-    background-color: #00000068;
+    background-color: rgba(255, 255, 255, 0.439) !important;
   }
   
   h2 {
     margin-bottom: 20px;
-    color: rgb(220, 221, 221);
+    color: rgba(3, 18, 18, 0.817);
   }
   
   label {
@@ -28,15 +28,16 @@
     text-align: left;
     font-size: 1.1rem;
     font-weight: 550;
-    color: rgb(225, 224, 224) !important;
+    color: rgb(255, 255, 255) !important;
   }
   
   input {
     padding: 5px !important;
     width: 20rem !important;
     background-color: white !important;
-    border: 2px solid green !important;
+    background-color: #e1e1e1e3 !important;
     outline: none;
+    border: none !important;
   }
   
   button {

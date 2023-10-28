@@ -91,6 +91,7 @@ let Navigationbar = () => {
 
   const handleLogout = (e) => {
     localStorage.removeItem('user_id');
+    localStorage.removeItem('userToken')
     navigate('/login');
   }
 

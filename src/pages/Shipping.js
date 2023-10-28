@@ -33,7 +33,7 @@ function ShippingAddressForm() {
   
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="shipping-form" onSubmit={handleSubmit}>
     <span className="title">Shipping Address</span>
       <label>
         Name:
